@@ -12,7 +12,7 @@ RESOLUTION = 2
 
 blocksize_c = np.linspace(100, 4096, num=RESOLUTION, dtype="int32")
 clumplength_c = np.linspace(3, 100, num=RESOLUTION, dtype="int32")
-order_c = np.linspace(20, 3948, num=RESOLUTION, dtype="int32")
+order_c = np.linspace(20, 50, num=RESOLUTION, dtype="int32")
 padsize_c = np.linspace(2, 512, num=RESOLUTION, dtype="int32")
 skew_c = np.linspace(-10.0, 10.0, num=RESOLUTION, dtype="float64")
 threshfwd_c = np.linspace(0.001, 1.4, num=RESOLUTION, dtype="float64")
