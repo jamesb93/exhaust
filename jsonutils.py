@@ -1,0 +1,4 @@
+def write_json(json_file_path: str, in_dict: dict):
+    """Takes a dictionary and writes it to JSON file"""
+    with open(json_file_path, "w+") as fp:
+        rj.dump(in_dict, fp, indent=4)
