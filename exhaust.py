@@ -8,26 +8,25 @@ import itertools
 import uuid
 
 
-RESOLUTION = 2
 
-blocksize_c = np.linspace(100, 4096, num=RESOLUTION, dtype="int32")
-clumplength_c = np.linspace(3, 100, num=RESOLUTION, dtype="int32")
-order_c = np.linspace(20, 50, num=RESOLUTION, dtype="int32")
-padsize_c = np.linspace(2, 512, num=RESOLUTION, dtype="int32")
-skew_c = np.linspace(-10.0, 10.0, num=RESOLUTION, dtype="float64")
-threshfwd_c = np.linspace(0.001, 1.4, num=RESOLUTION, dtype="float64")
-threshback_c = np.linspace(0.001, 1.4, num=RESOLUTION, dtype="float64")
-windowsize_c = np.linspace(3, 20, num=RESOLUTION, dtype="int32")
+blocksize_c = np.linspace(20, 80, num=3, dtype="int32")
+# clumplength_c = np.linspace(3, 100, num=RESOLUTION, dtype="int32")
+order_c = np.linspace(20, 50, num=3, dtype="int32")
+# padsize_c = np.linspace(2, 512, num=RESOLUTION, dtype="int32")w
+skew_c = np.linspace(-10.0, 10.0, num=5, dtype="float64")
+threshfwd_c = np.linspace(0.1, 1.4, num=4, dtype="float64")
+threshback_c = np.linspace(0.1, 2.5, num=5, dtype="float64")
+# windowsize_c = np.linspace(3, 20, num=RESOLUTION, dtype="int32")
 
 possibilities = [
     blocksize_c,
-    clumplength_c,
+    # clumplength_c,
     order_c,
-    padsize_c,
+    # padsize_c,
     skew_c,
     threshfwd_c,
     threshback_c,
-    windowsize_c,
+    # windowsize_c,
 ]
 
 combos = list(itertools.product(*possibilities))
@@ -52,10 +51,12 @@ class Worker():
             self.outfolder, f"{identifier}.wav"
         )
         transients(*workable, source=self.source, output=out_path)
-        self.metadata[identifier] = workable
+
+        # Convert everything to a string to play nicely with JSON encoding
+        self.metadata[identifier] = [str(x) for x in workable]
     
     def dump_meta(self):
-        write_json(self.metadata_json, dict(self.metadata))
+        write_json(self.metadata_json, dict(self.metadata), indent=0)
 
 
 if __name__ == "__main__":
