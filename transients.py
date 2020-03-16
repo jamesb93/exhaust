@@ -1,14 +1,15 @@
 import subprocess
 
+
 def transients(
     blocksize: int,
-    clumplength: int,
+    # clumplength: int,
     order: int,
-    padsize: int,
+    # padsize: int,
     skew: int,
     threshback: float,
     threshfwd: float,
-    windowsize: int,
+    # windowsize: int,
     source: str,
     output: str,
 ):
@@ -20,19 +21,16 @@ def transients(
             "-transients", output,
             "-blocksize",
             str(blocksize),
-            "-clumplength",
-            str(clumplength),
+            "-clumplength", "25",
             "-order",
             str(order),
-            "-padsize",
-            str(padsize),
+            "-padsize", "128",
             "-skew",
             str(skew),
             "-threshback",
             str(threshback),
             "-threshfwd",
             str(threshfwd),
-            "-windowsize",
-            str(windowsize),
+            "-windowsize", "14",
         ]
     )
