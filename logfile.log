@@ -1,0 +1,7 @@
+2020-03-26 12:05:26,419 : INFO : ftis.process : Logging initialised
+2020-03-26 12:05:26,419 : INFO : ftis.process : Validating Configuration
+2020-03-26 12:05:26,421 : DEBUG : ftis.process : Creating SHELL instance
+2020-03-26 12:05:26,421 : INFO : ftis.process : Validating parameters for shell
+2020-03-26 12:05:26,422 : DEBUG : ftis.process : Setting output for shell
+2020-03-26 12:05:26,429 : INFO : ftis.process : Starting shell
+2020-03-26 12:05:26,457 : INFO : ftis.process : Finished shell
