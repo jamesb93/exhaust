@@ -3,3 +3,4 @@
 .DS_Store
 analysis
 .mypy_cache*
+/__pycache__/*
